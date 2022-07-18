@@ -37,8 +37,13 @@ def getGenreSpecificVinyl(genre):
         vinylIndex = random.randrange(len(numList)-1)
         vinylInfo = me.collection_folders[0].releases[numList[vinylIndex]].data["basic_information"]
 
+        # makes sure case does not have an effect
+        genres = []
+        for entry in vinylInfo["genres"]:
+            genres.append(entry.lower())
+
         # gets all of the basic info for a random item in the collection if the genre matches
-        if genre in vinylInfo["genres"]:
+        if genre.lower() in genres:
             vinylData = []
             vinylData.append(vinylInfo['artists'][0]['name'])
             vinylData.append(vinylInfo["title"])
@@ -50,6 +55,4 @@ def getGenreSpecificVinyl(genre):
 
     # if none are found return a filler list
     return ["Couldn't find a match."]
-
-
 
