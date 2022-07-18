@@ -1,5 +1,5 @@
-from scraper import generateRandomVinyl, getGenreSpecificVinyl
-from PyQt6.QtWidgets import QApplication, QWidget, QPushButton, QVBoxLayout, QLabel, QLineEdit
+from dataCollector import generateRandomVinyl, getGenreSpecificVinyl
+from PyQt6.QtWidgets import QWidget, QPushButton, QVBoxLayout, QLabel, QLineEdit
 from PyQt6.QtCore import Qt
 
 class userInterface(QWidget):
@@ -35,7 +35,7 @@ class userInterface(QWidget):
         genreBoxLabel.setAlignment(Qt.AlignmentFlag.AlignBottom | Qt.AlignmentFlag.AlignHCenter)
         self.layout.addWidget(genreBoxLabel)
 
-        self.genreBox = QLineEdit()
+        self.genreBox = QLineEdit("eg. Hip Hop, Rock, etc.")
         self.genreBox.setAlignment(Qt.AlignmentFlag.AlignBottom | Qt.AlignmentFlag.AlignHCenter)
         self.layout.addWidget(self.genreBox)
 
